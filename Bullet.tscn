@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciu6qrhn3f35e"]
+
+[ext_resource type="Texture2D" uid="uid://brulsnp8w44oj" path="res://sprites/icon.svg" id="1_blvg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blvg2"]
+size = Vector2(28, 30)
+
+[node name="Bullet" type="Area2D"]
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_blvg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_blvg2")
