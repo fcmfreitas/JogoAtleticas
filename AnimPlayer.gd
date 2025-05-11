@@ -3,9 +3,9 @@ extends CharacterBody2D
 @export var speed := 300.0
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
-
+@export var espada : PackedScene
 @onready var sprite = $PlayerSprite
-@export var bullet : PackedScene
+#@export var bullet : PackedScene
 var is_attacking = false
 
 func animate_side():
@@ -44,16 +44,25 @@ func get_side_input():
 	var vel := Input.get_axis("left", "right")
 	var jump := Input.is_action_just_pressed('ui_select')
 	
+	if Input.is_action_just_pressed("click"):
+		var e = espada.instantiate()  # CORRETO
+		
+
+		# Define a direção com base no sprite.flip_h
+		if sprite.flip_h:
+			e.direction = Vector2.LEFT
+			e.position = global_position + Vector2(-143, -100)
+		else:
+			e.direction = Vector2.RIGHT
+			e.position = global_position + Vector2(0, -100)
+
+		get_parent().add_child(e)
+	
 	if is_on_floor() and jump:
 		velocity.y = jump_speed
 		get_tree().call_group("HUD", "update_score")
 	velocity.x = vel * speed
 	
-	#if Input.is_action_just_pressed("click"):
-	#	print("Shoot")
-	#	var b := bullet.instantiate()
-	#	b.position = global_position
-	#	owner.add_child(b)
 
 func move_side(delta):
 	velocity.y += gravity * delta

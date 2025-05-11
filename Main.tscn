@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvdfsmvn6flws"]
+[gd_scene load_steps=11 format=3 uid="uid://bvdfsmvn6flws"]
 
 [ext_resource type="PackedScene" uid="uid://d3equlu2k18pa" path="res://AnimPlayer.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://bxqodkil6popv" path="res://Game.gd" id="1_lgr22"]
 [ext_resource type="Texture2D" uid="uid://bp2dpdpn462oo" path="res://sprites/grass1.png" id="2_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://bj33xhy6d31ui" path="res://sprites/grass2.png" id="3_lgr22"]
-[ext_resource type="PackedScene" uid="uid://ciu6qrhn3f35e" path="res://Bullet.tscn" id="3_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://bstbeyu5ohpn7" path="res://AnimRobot.tscn" id="8_03owx"]
 [ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="8_trn2v"]
 [ext_resource type="Script" uid="uid://bfq3swfrk3l1j" path="res://Label.gd" id="9_03owx"]
@@ -85,7 +84,6 @@ player_path = NodePath("../AnimPlayer")
 
 [node name="AnimPlayer" parent="." groups=["Player"] instance=ExtResource("1_glv2v")]
 position = Vector2(608, 287)
-bullet = ExtResource("3_wkp8b")
 
 [node name="Camera2D" type="Camera2D" parent="AnimPlayer"]
 position_smoothing_enabled = true

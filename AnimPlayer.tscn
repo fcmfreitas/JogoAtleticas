@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3equlu2k18pa"]
+[gd_scene load_steps=23 format=3 uid="uid://d3equlu2k18pa"]
 
 [ext_resource type="Script" uid="uid://bkv0gni4voe8x" path="res://AnimPlayer.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b3kr8sfepsqms" path="res://sprites/player_atack.png" id="2_4fvff"]
 [ext_resource type="Texture2D" uid="uid://cwraqraysw8c2" path="res://sprites/player_idle.png" id="2_7r7ai"]
+[ext_resource type="PackedScene" uid="uid://bytbr1cgx3dsu" path="res://Espada.tscn" id="2_a0j8g"]
 [ext_resource type="Texture2D" uid="uid://dvltkw2aoknde" path="res://sprites/player_jumping.png" id="3_4fvff"]
 [ext_resource type="Texture2D" uid="uid://bowvdd4dift7i" path="res://sprites/player_running.png" id="3_7r7ai"]
 
@@ -132,9 +133,10 @@ size = Vector2(82, 153)
 
 [node name="AnimPlayer" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
+espada = ExtResource("2_a0j8g")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-40.6081, -51.7808)
+position = Vector2(-41, -57)
 scale = Vector2(0.279335, 0.279335)
 sprite_frames = SubResource("SpriteFrames_efikj")
 animation = &"atack"
