@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
 @export var gravity := 2500.0
-@export var max_health := 100
 @onready var sprite = $RobotSprite
 @onready var projetil = $Projetil
 @export var player_path : NodePath
-var health := max_health
+var health := 100
 var player : Node2D
 
 func _ready():

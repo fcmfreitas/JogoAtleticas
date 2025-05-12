@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gravity := 2500.0
 @export var espada : PackedScene
 @onready var sprite = $PlayerSprite
+@onready var health := 100
 #@export var bullet : PackedScene
 var is_attacking = false
 
@@ -91,7 +92,13 @@ func animate():
 		sprite.play("jump")
 	else:
 		sprite.stop()
-		
+
+func take_damage(amount):
+	health -= amount
+	print("Vida restante: ", health)
+	if health <= 0:
+		die()
+
 func move_8way(delta): 
 	get_8way_input()
 	animate()
@@ -104,3 +111,6 @@ func move_8way(delta):
 func _physics_process(delta):
 	# move_8way(delta)
 	move_side(delta)
+
+func die():
+	queue_free()

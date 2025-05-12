@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvdfsmvn6flws"]
+[gd_scene load_steps=15 format=3 uid="uid://bvdfsmvn6flws"]
 
 [ext_resource type="PackedScene" uid="uid://d3equlu2k18pa" path="res://player/AnimPlayer.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://bxqodkil6popv" path="res://game/Game.gd" id="1_lgr22"]
 [ext_resource type="PackedScene" uid="uid://d3fhsv3w20q8a" path="res://enemy/Raposa.tscn" id="6_trn2v"]
+[ext_resource type="PackedScene" uid="uid://bs57nxvpeo6xv" path="res://enemy/Binarios.tscn" id="7_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://bstbeyu5ohpn7" path="res://enemy/AnimRobot.tscn" id="8_03owx"]
 [ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="8_trn2v"]
 [ext_resource type="Script" uid="uid://bfq3swfrk3l1j" path="res://game/Label.gd" id="9_03owx"]
@@ -119,3 +120,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2(2.5, -237.5)
 shape = SubResource("RectangleShape2D_20pc6")
+
+[node name="Area2D" parent="." instance=ExtResource("7_fk7ia")]
+position = Vector2(887, 713)
