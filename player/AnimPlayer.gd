@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 300.0
+@export var speed := 320.0
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
 @export var espada : PackedScene
@@ -46,16 +46,19 @@ func get_side_input():
 	
 	if Input.is_action_just_pressed("click"):
 		var e = espada.instantiate()  # CORRETO
+		var mouse_pos = get_global_mouse_position()
 		
-
-		# Define a direção com base no sprite.flip_h
-		if sprite.flip_h:
-			e.direction = Vector2.LEFT
+		
+		if mouse_pos.x < global_position.x:
+			sprite.flip_h = true
 			e.position = global_position + Vector2(-143, -100)
 		else:
-			e.direction = Vector2.RIGHT
+			sprite.flip_h = false
 			e.position = global_position + Vector2(0, -100)
-
+		
+		var direction = (mouse_pos - e.position).normalized()
+		e.direction = direction
+		
 		get_parent().add_child(e)
 	
 	if is_on_floor() and jump:

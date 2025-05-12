@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 @export var gravity := 2500.0
-
+@export var max_health := 100
 @onready var sprite = $RobotSprite
 @onready var projetil = $Projetil
 @export var player_path : NodePath
+var health := max_health
 var player : Node2D
 
 func _ready():
@@ -26,3 +27,12 @@ func _physics_process(delta):
 			sprite.flip_h = false
 
 	move_and_slide()
+
+func take_damage(amount):
+	health -= amount
+	print("Vida restante: ", health)
+	if health <= 0:
+		die()
+
+func die():
+	queue_free()
