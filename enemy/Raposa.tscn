@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3fhsv3w20q8a"]
+
+[ext_resource type="Texture2D" uid="uid://3yco2q3yna6m" path="res://sprites/raposa.png" id="1_7ilt8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5h4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ilt8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf1j"]
+size = Vector2(326, 859)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 42)
+scale = Vector2(0.9025, 0.9025)
+sprite_frames = SubResource("SpriteFrames_x5h4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 66.5)
+shape = SubResource("RectangleShape2D_oxf1j")

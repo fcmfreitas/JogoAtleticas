@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bstbeyu5ohpn7"]
 
 [ext_resource type="Texture2D" uid="uid://rbrjqoexolkj" path="res://sprites/robot.png" id="1_8f3to"]
-[ext_resource type="Script" uid="uid://tme7t4nr1xma" path="res://AnimRobot.gd" id="1_h4h1q"]
+[ext_resource type="Script" uid="uid://tme7t4nr1xma" path="res://enemy/AnimRobot.gd" id="1_h4h1q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8f3to"]
 animations = [{

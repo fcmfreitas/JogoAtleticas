@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://d3equlu2k18pa"]
 
-[ext_resource type="Script" uid="uid://bkv0gni4voe8x" path="res://AnimPlayer.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://bkv0gni4voe8x" path="res://player/AnimPlayer.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b3kr8sfepsqms" path="res://sprites/player_atack.png" id="2_4fvff"]
 [ext_resource type="Texture2D" uid="uid://cwraqraysw8c2" path="res://sprites/player_idle.png" id="2_7r7ai"]
-[ext_resource type="PackedScene" uid="uid://bytbr1cgx3dsu" path="res://Espada.tscn" id="2_a0j8g"]
+[ext_resource type="PackedScene" uid="uid://bytbr1cgx3dsu" path="res://player/Espada.tscn" id="2_a0j8g"]
 [ext_resource type="Texture2D" uid="uid://dvltkw2aoknde" path="res://sprites/player_jumping.png" id="3_4fvff"]
 [ext_resource type="Texture2D" uid="uid://bowvdd4dift7i" path="res://sprites/player_running.png" id="3_7r7ai"]
 

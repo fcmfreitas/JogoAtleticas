@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpudnundoqmyn"]
 
-[ext_resource type="Script" uid="uid://duy4f2o1iks1a" path="res://UI.gd" id="1_3b2b5"]
+[ext_resource type="Script" uid="uid://duy4f2o1iks1a" path="res://game/UI.gd" id="1_3b2b5"]
 [ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="2_g6l6n"]
 
 [node name="TestUI" type="Node2D"]
