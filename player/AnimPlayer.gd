@@ -113,4 +113,4 @@ func _physics_process(delta):
 	move_side(delta)
 
 func die():
-	queue_free()
+	get_tree().change_scene_to_file("res://game/GameOver.tscn")

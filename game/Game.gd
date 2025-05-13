@@ -9,9 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player.position.y > 1500: 
-		get_tree().change_scene_to_file("res://game/GameOver.tscn")
-	if player.position.x > 2500:
-		camera.zoom = camera.zoom.lerp(Vector2(0.7, 0.7), 0.05)
-	
+	if player and is_instance_valid(player):
+		if player.position.y > 1500: 
+			get_tree().change_scene_to_file("res://game/GameOver.tscn")
+		if player.position.x > 2500:
+			camera.zoom = camera.zoom.lerp(Vector2(0.7, 0.7), 0.05)
 	pass

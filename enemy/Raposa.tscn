@@ -1,16 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3fhsv3w20q8a"]
+[gd_scene load_steps=8 format=3 uid="uid://d3fhsv3w20q8a"]
 
 [ext_resource type="Texture2D" uid="uid://3yco2q3yna6m" path="res://sprites/raposa.png" id="1_7ilt8"]
 [ext_resource type="Script" uid="uid://b56sdwd03vsus" path="res://enemy/raposa.gd" id="1_gnt4v"]
 [ext_resource type="PackedScene" uid="uid://bs57nxvpeo6xv" path="res://enemy/Binarios.tscn" id="2_dpx77"]
+[ext_resource type="Texture2D" uid="uid://b0ip0ylaiq8mw" path="res://sprites/raposa2.png" id="3_4jrow"]
+[ext_resource type="Texture2D" uid="uid://60avv3jg3sfr" path="res://sprites/raposa3.png" id="4_srisv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x5h4a"]
 animations = [{
 "frames": [{
+"duration": 2.25,
+"texture": ExtResource("3_4jrow")
+}, {
+"duration": 2.25,
+"texture": ExtResource("4_srisv")
+}],
+"loop": false,
+"name": &"Atack1",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_7ilt8")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]

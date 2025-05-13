@@ -1,17 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs57nxvpeo6xv"]
+[gd_scene load_steps=8 format=3 uid="uid://bs57nxvpeo6xv"]
 
 [ext_resource type="Texture2D" uid="uid://bth3607rucmym" path="res://sprites/binarios.png" id="1_8bbr6"]
 [ext_resource type="Script" uid="uid://ye7nqt2wuwuo" path="res://enemy/binarios.gd" id="1_hcfft"]
+[ext_resource type="Texture2D" uid="uid://2blssauqmspr" path="res://sprites/stage1.png" id="3_y46p7"]
+[ext_resource type="Texture2D" uid="uid://cr7382sgg4wfm" path="res://sprites/stage2.png" id="4_sktie"]
+[ext_resource type="Texture2D" uid="uid://dr6kwi84g2i2y" path="res://sprites/stage3.png" id="5_pgd3d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfft"]
-size = Vector2(199, 360)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y46p7"]
+radius = 89.5
+height = 348.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y46p7"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("3_y46p7")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_sktie")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_pgd3d")
+}],
+"loop": false,
+"name": &"PreAtack",
+"speed": 5.0
+}]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_hcfft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8bbr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_hcfft")
+position = Vector2(-0.5, 4)
+shape = SubResource("CapsuleShape2D_y46p7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -883)
+scale = Vector2(0.555556, 1.96667)
+sprite_frames = SubResource("SpriteFrames_y46p7")
+animation = &"PreAtack"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

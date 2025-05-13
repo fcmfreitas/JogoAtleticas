@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var player: CharacterBody2D
 @export var binarios: PackedScene
+@onready var raposa = $AnimatedSprite2D
 var health := 1000
 var dist_player
-enum StateMachine { idle, ataque, die }
-var state = StateMachine.idle
-var ataque_ativado := false  # garante que o ataque ocorra apenas uma vez
+enum StateMachine { waitingPlayer, idle, ataque, die }
+var state = StateMachine.waitingPlayer
 
 func _ready() -> void:
 	pass
@@ -20,28 +20,23 @@ func spawn_codigos():
 		var instancia = binarios.instantiate()
 		
 		var pos_x = randf_range(2500, 5000)
-		var pos_y = 450
+		var pos_y = 650
 		instancia.position = Vector2(pos_x, pos_y)
 		
-
 		get_parent().add_child(instancia)
-
 
 func _process(delta: float) -> void:
 	if state == StateMachine.die:
 		return
 
-	if global_position.distance_to(player.global_position) < 1000 and not ataque_ativado:
-		if player.global_position.x >= 2700:
-			_enter_state(StateMachine.ataque)
-
 	match state:
+		StateMachine.waitingPlayer:
+			if abs(global_position.x - player.global_position.x) < 550:
+				_enter_state(StateMachine.ataque)
+			
 		StateMachine.ataque:
-			print("Iniciando ataque!")
-			spawn_codigos()
-			ataque_ativado = true  # impede futuras ativações
-			_enter_state(StateMachine.idle)
-
+			atack1()
+			
 		StateMachine.idle:
 			_idle_wait()
 
@@ -49,6 +44,24 @@ func _process(delta: float) -> void:
 func _idle_wait() -> void:
 	set_process(false)  # Evita múltiplas chamadas durante o "await"
 	await get_tree().create_timer(3.0).timeout
-	ataque_ativado = false  # permite novo ataque
 	_enter_state(StateMachine.ataque)
 	set_process(true)
+
+func atack1() -> void:
+	set_process(false)
+	print("Iniciando ataque!")
+	raposa.play("Atack1")
+	spawn_codigos()
+	await raposa.animation_finished
+	raposa.play("default")
+	_enter_state(StateMachine.idle)
+	set_process(true)
+
+func take_damage(amount):
+	health -= amount
+	print("Vida restante: ", health)
+	if health <= 0:
+		die()
+		
+func die():
+	queue_free()
