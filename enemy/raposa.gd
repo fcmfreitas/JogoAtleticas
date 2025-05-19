@@ -19,7 +19,7 @@ func spawn_codigos():
 	for i in range(5):
 		var instancia = binarios.instantiate()
 		
-		var pos_x = randf_range(2500, 5000)
+		var pos_x = randf_range(player.position.x - 400, player.position.x + 400)
 		var pos_y = 650
 		instancia.position = Vector2(pos_x, pos_y)
 		
