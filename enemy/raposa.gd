@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var raposa = $AnimatedSprite2D
 var health := 1000
 var dist_player
-enum StateMachine { waitingPlayer, idle, ataque, die }
+enum StateMachine { waitingPlayer, idle, ataque, ataque2, die }
 var state = StateMachine.waitingPlayer
 
 func _ready() -> void:
@@ -15,6 +15,7 @@ func _enter_state(new_state: StateMachine) -> void:
 	if state != new_state:
 		state = new_state
 
+	
 func spawn_codigos():
 	for i in range(5):
 		var instancia = binarios.instantiate()
@@ -32,26 +33,44 @@ func _process(delta: float) -> void:
 	match state:
 		StateMachine.waitingPlayer:
 			if abs(global_position.x - player.global_position.x) < 550:
-				_enter_state(StateMachine.ataque)
-			
+				_enter_state(StateMachine.ataque2)
+		
+		StateMachine.ataque2:
+			atack2()
+		
 		StateMachine.ataque:
 			atack1()
 			
 		StateMachine.idle:
 			_idle_wait()
 
-# Aguarda 3 segundos e troca para ataque novamente
 func _idle_wait() -> void:
-	set_process(false)  # Evita múltiplas chamadas durante o "await"
+	set_process(false)  
 	await get_tree().create_timer(3.0).timeout
-	_enter_state(StateMachine.ataque)
+
+	var ataques = [StateMachine.ataque, StateMachine.ataque2]
+	
+	randomize() 
+	var proximo_ataque = ataques[randi() % ataques.size()]  # Escolhe aleatoriamente
+
+	_enter_state(proximo_ataque)
 	set_process(true)
+
 
 func atack1() -> void:
 	set_process(false)
 	print("Iniciando ataque!")
 	raposa.play("Atack1")
 	spawn_codigos()
+	await raposa.animation_finished
+	raposa.play("default")
+	_enter_state(StateMachine.idle)
+	set_process(true)
+
+func atack2() -> void:
+	set_process(false)
+	print("Soco!")
+	raposa.play("Atack2")
 	await raposa.animation_finished
 	raposa.play("default")
 	_enter_state(StateMachine.idle)

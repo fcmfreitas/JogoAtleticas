@@ -1,8 +1,7 @@
 extends Label
 
-@onready var score := 0
+@onready var barra_vida := $TextureProgressBar
 
-func update_score():
-	#score += 1
-	#text = "Score: " + str(score)
-	pass
+func update_life_bar(vida_atual: int) -> void:
+	barra_vida.max_value = 100
+	barra_vida.value = vida_atual

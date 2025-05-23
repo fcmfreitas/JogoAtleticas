@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://hn5mwtqtobfv"]
+
+[ext_resource type="Script" uid="uid://c1gq3dmtxav2w" path="res://enemy/soco.gd" id="1_uhjgt"]
+[ext_resource type="Texture2D" uid="uid://14w11dhp3ddy" path="res://sprites/grass5.png" id="2_nf7iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwnks"]
+size = Vector2(114, 102.75)
+
+[node name="Soco" type="Area2D"]
+script = ExtResource("1_uhjgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -29)
+scale = Vector2(2.31481, 2.31481)
+texture = ExtResource("2_nf7iu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -32.625)
+shape = SubResource("RectangleShape2D_fwnks")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]
