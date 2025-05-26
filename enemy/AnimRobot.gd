@@ -2,22 +2,33 @@ extends CharacterBody2D
 
 @export var gravity := 2500.0
 @onready var sprite = $RobotSprite
-@onready var projetil = $Projetil
+@onready var marker = $Marker2D
+@onready var marker2 = $Marker2D2
 @export var player_path : NodePath
+@export var projetil : PackedScene
 var health := 100
 var player : Node2D
+
+var shoot_timer : Timer
 
 func _ready():
 	if player_path:
 		player = get_node(player_path)
 
-func _physics_process(delta):
+	# Cria e configura o Timer
+	shoot_timer = Timer.new()
+	shoot_timer.wait_time = 2.0
+	shoot_timer.one_shot = false
+	shoot_timer.autostart = true
+	add_child(shoot_timer)
+	shoot_timer.connect("timeout", Callable(self, "shoot"))
 
+func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		velocity.y = 0
-
+	
 	# Flip sprite baseado na posição do jogador
 	if player:
 		if player.global_position.x < global_position.x + 40:
@@ -26,6 +37,18 @@ func _physics_process(delta):
 			sprite.flip_h = false
 
 	move_and_slide()
+
+func shoot():
+	if projetil:
+		var p = projetil.instantiate()
+		if player.global_position.x < global_position.x + 40:
+			p.position = marker2.global_position
+			p.direction = Vector2.LEFT
+		else:
+			p.position = marker.global_position
+			p.direction = Vector2.RIGHT
+		
+		get_parent().add_child(p)
 
 func take_damage(amount):
 	health -= amount

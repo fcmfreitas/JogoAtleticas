@@ -54,38 +54,33 @@ func attack():
 	e.direction = (mouse_pos - e.position).normalized()
 	get_parent().add_child(e)
 
-	# depois da animação de ataque, muda para "no_espada"
-	await get_tree().create_timer(0.3).timeout  # espera terminar "atack" (ajuste conforme a duração real)
+	await get_tree().create_timer(0.3).timeout  # tempo restante da animação "atack"
+
 	is_attacking = false
 	is_no_sword = true
-	
-	if velocity.x == 0:
-		sprite.play("idle_no_espada")
-	elif velocity.x > 0:
-		sprite.play("no_espada")
-		sprite.flip_h = false
-	elif velocity.x < 0:
-		sprite.play("no_espada")
-		sprite.flip_h = true
-	
 
-	await get_tree().create_timer(1.3).timeout  # tempo com animação "no_espada"
+	await get_tree().create_timer(0.6).timeout  # tempo sem espada
 	is_no_sword = false
 
 func animate_side():
-	if is_attacking or is_no_sword:
-		return  # não troca de animação durante "atack" nem "no_espada"
+	if is_attacking:
+		return  # não troca animação durante ataque
+
+	var anim_prefix = ""
+	if is_no_sword:
+		anim_prefix = "_no_espada"
+
 
 	if !is_on_floor():
-		sprite.play("jump")
+		sprite.play("jump" + anim_prefix)
 		sprite.flip_h = velocity.x < 0
 	elif velocity.x == 0:
-		sprite.play("idle")
+		sprite.play("idle" + anim_prefix)
 	elif velocity.x > 0:
-		sprite.play("running")
+		sprite.play("running" + anim_prefix)
 		sprite.flip_h = false
 	elif velocity.x < 0:
-		sprite.play("running")
+		sprite.play("running" + anim_prefix)
 		sprite.flip_h = true
 	else:
 		sprite.stop()

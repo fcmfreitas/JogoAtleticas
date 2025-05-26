@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var preAtack = $AnimatedSprite2D
 @onready var sprite = $Sprite2D
-@export var damage := 50
+@export var damage := 30
 @export var direction := Vector2.UP  # Move para cima
 @export var speed := 800
 var can_move := false

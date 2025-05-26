@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3fhsv3w20q8a"]
+[gd_scene load_steps=17 format=3 uid="uid://d3fhsv3w20q8a"]
 
 [ext_resource type="Texture2D" uid="uid://3yco2q3yna6m" path="res://sprites/raposa.png" id="1_7ilt8"]
 [ext_resource type="Script" uid="uid://b56sdwd03vsus" path="res://enemy/raposa.gd" id="1_gnt4v"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hn5mwtqtobfv" path="res://enemy/soco.tscn" id="6_srisv"]
 [ext_resource type="Texture2D" uid="uid://q8uj4mfxcpn4" path="res://sprites/raposa_soco3.png" id="7_j1msw"]
 [ext_resource type="Texture2D" uid="uid://n6icn1hqvihl" path="res://sprites/raposa_soco4.png" id="8_0jgwb"]
+[ext_resource type="PackedScene" uid="uid://5w7tm7xxnvdt" path="res://enemy/Raio.tscn" id="11_rmde3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x5h4a"]
 animations = [{
@@ -81,9 +82,58 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-269, -335)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Raio2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Raio2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(358, 470)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Raio3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-143, 471)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Raio4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-439, 473)]
+}
 
 [sub_resource type="Animation" id="Animation_srisv"]
 resource_name = "soco"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,10 +141,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(272, -328), Vector2(478.58, 174.78), Vector2(213, 458)]
+"values": [Vector2(272, -328), Vector2(478.58, 174.78), Vector2(213, 458), Vector2(272, -328)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -103,10 +153,82 @@ tracks/1/path = NodePath("../Soco2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-269, -335), Vector2(-481, 160), Vector2(-284, 473), Vector2(-269, -335)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Raio2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Raio3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Raio4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Raio2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.866667, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-269, -335), Vector2(-481, 160), Vector2(-284, 473)]
+"values": [Vector2(349, 2000), Vector2(358, 470), Vector2(905, 470)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Raio3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.833333, 0.966667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-51, 2562), Vector2(-143, 471), Vector2(95, 471)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Raio4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-385, 2559), Vector2(-439, 473), Vector2(-1187, 473)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5q6t"]
@@ -124,7 +246,6 @@ binarios = ExtResource("2_dpx77")
 position = Vector2(-4.87502, 78.25)
 scale = Vector2(0.840417, 0.840417)
 sprite_frames = SubResource("SpriteFrames_x5h4a")
-animation = &"Atack2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -48)
@@ -137,6 +258,19 @@ position = Vector2(441, 0)
 [node name="Soco2" parent="." instance=ExtResource("6_srisv")]
 process_mode = 1
 position = Vector2(-269, -335)
+
+[node name="Raio2" parent="." instance=ExtResource("11_rmde3")]
+visible = false
+position = Vector2(358, 470)
+collision_layer = 1
+
+[node name="Raio3" parent="." instance=ExtResource("11_rmde3")]
+visible = false
+position = Vector2(-143, 471)
+
+[node name="Raio4" parent="." instance=ExtResource("11_rmde3")]
+visible = false
+position = Vector2(-439, 473)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Soco")
