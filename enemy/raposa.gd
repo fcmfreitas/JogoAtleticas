@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 @export var binarios: PackedScene
 @onready var raposa = $AnimatedSprite2D
+@onready var anim_player = $AnimationPlayer
 var health := 1000
 var dist_player
 enum StateMachine { waitingPlayer, idle, ataque, ataque2, die }
@@ -71,10 +72,16 @@ func atack2() -> void:
 	set_process(false)
 	print("Soco!")
 	raposa.play("Atack2")
+
+	anim_player.stop()
+	anim_player.play("soco")
+
 	await raposa.animation_finished
+	anim_player.seek(0.0, true)
 	raposa.play("default")
 	_enter_state(StateMachine.idle)
 	set_process(true)
+
 
 func take_damage(amount):
 	health -= amount

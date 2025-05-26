@@ -9,9 +9,11 @@ func _process(delta):
 	
 	if(direction.x < 0):
 		sprite.flip_h = true
+		rotation -= deg_to_rad(360) * delta
 	else:
 		sprite.flip_h = false
-
+		rotation += deg_to_rad(360) * delta
+	
 	position += direction * speed * delta
 
 func _on_body_entered(body):

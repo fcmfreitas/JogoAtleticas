@@ -7,9 +7,12 @@
 size = Vector2(114, 102.75)
 
 [node name="Soco" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_uhjgt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, -29)
 scale = Vector2(2.31481, 2.31481)
 texture = ExtResource("2_nf7iu")
