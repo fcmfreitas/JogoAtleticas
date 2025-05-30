@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvdfsmvn6flws"]
+[gd_scene load_steps=18 format=3 uid="uid://bvdfsmvn6flws"]
 
 [ext_resource type="PackedScene" uid="uid://d3equlu2k18pa" path="res://player/AnimPlayer.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://bxqodkil6popv" path="res://game/Game.gd" id="1_lgr22"]
@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://bstbeyu5ohpn7" path="res://enemy/AnimRobot.tscn" id="8_03owx"]
 [ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="8_trn2v"]
 [ext_resource type="Script" uid="uid://bfq3swfrk3l1j" path="res://game/Label.gd" id="9_03owx"]
+[ext_resource type="PackedScene" uid="uid://cu33fiwlix8ps" path="res://enemy/CanhaoBinarios.tscn" id="9_v2tjf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yo8gm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
-size = Vector2(1634, 37)
+size = Vector2(1630.95, 37)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fk7ia"]
 
@@ -26,6 +27,9 @@ size = Vector2(33, 515)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
 size = Vector2(2445, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t0ec"]
+size = Vector2(1513.38, 37)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_lgr22")
@@ -60,7 +64,7 @@ texture = SubResource("PlaceholderTexture2D_fk7ia")
 shape = SubResource("RectangleShape2D_uu6xs")
 
 [node name="ParedeInicial" type="StaticBody2D" parent="."]
-position = Vector2(218, 301)
+position = Vector2(-2966, 674)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeInicial"]
@@ -117,7 +121,7 @@ position = Vector2(1038, 0)
 shape = SubResource("RectangleShape2D_glv2v")
 
 [node name="RaposaBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_trn2v")]
-position = Vector2(3710, -185)
+position = Vector2(3724, -185)
 player = NodePath("../AnimPlayer")
 
 [node name="AnimRobot" parent="." instance=ExtResource("8_03owx")]
@@ -125,7 +129,7 @@ position = Vector2(1280, 230)
 player_path = NodePath("../AnimPlayer")
 
 [node name="AnimPlayer" parent="." groups=["Player"] instance=ExtResource("1_glv2v")]
-position = Vector2(490, 282)
+position = Vector2(-2760, 545)
 
 [node name="Camera2D" type="Camera2D" parent="AnimPlayer"]
 offset = Vector2(0, -140)
@@ -141,3 +145,67 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeFinal"]
 position = Vector2(2.5, -237.5)
 shape = SubResource("RectangleShape2D_20pc6")
+
+[node name="Chao3" type="StaticBody2D" parent="."]
+position = Vector2(-1213, 520)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao3"]
+modulate = Color(0.201618, 0.213908, 0.290995, 1)
+position = Vector2(698.719, -13.71)
+rotation = -0.226893
+scale = Vector2(1513.55, 41)
+texture = SubResource("PlaceholderTexture2D_yo8gm")
+
+[node name="aaaa" type="CollisionShape2D" parent="Chao3"]
+position = Vector2(698.797, -11.3817)
+rotation = -0.226893
+shape = SubResource("RectangleShape2D_6t0ec")
+
+[node name="CanhaoBinarios" parent="." instance=ExtResource("9_v2tjf")]
+position = Vector2(-1417, 1058)
+
+[node name="Plataforma4" type="StaticBody2D" parent="."]
+position = Vector2(-2807, 680)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma4"]
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+position = Vector2(6.10352e-05, -1.5)
+scale = Vector2(286, 43)
+texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma4"]
+shape = SubResource("RectangleShape2D_uu6xs")
+
+[node name="Plataforma3" type="StaticBody2D" parent="."]
+position = Vector2(-2270, 680)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma3"]
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+position = Vector2(6.10352e-05, -1.5)
+scale = Vector2(286, 43)
+texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma3"]
+shape = SubResource("RectangleShape2D_uu6xs")
+
+[node name="Plataforma2" type="StaticBody2D" parent="."]
+position = Vector2(-1710, 680)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma2"]
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+position = Vector2(6.10352e-05, -1.5)
+scale = Vector2(286, 43)
+texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma2"]
+shape = SubResource("RectangleShape2D_uu6xs")
+
+[node name="CanhaoBinarios3" parent="." instance=ExtResource("9_v2tjf")]
+position = Vector2(-2529, 1049)
+
+[node name="CanhaoBinarios2" parent="." instance=ExtResource("9_v2tjf")]
+position = Vector2(-1998, 1058)

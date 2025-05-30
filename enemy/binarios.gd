@@ -11,7 +11,8 @@ func _process(delta):
 	#print("print")
 	if can_move:
 		position += direction * speed * delta
-	
+		if position.y > 5000:
+			queue_free()
 	
 func _ready() -> void:
 	#print("fffff")

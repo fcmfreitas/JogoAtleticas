@@ -3,7 +3,7 @@ extends Area2D
 @onready var sprite = $Sprite2D
 @export var damage := 25
 @export var direction := Vector2.RIGHT
-@export var speed := 800
+@export var speed := 1000
 
 func _process(delta):
 	

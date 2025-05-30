@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3fhsv3w20q8a"]
+[gd_scene load_steps=19 format=3 uid="uid://d3fhsv3w20q8a"]
 
 [ext_resource type="Texture2D" uid="uid://3yco2q3yna6m" path="res://sprites/raposa.png" id="1_7ilt8"]
 [ext_resource type="Script" uid="uid://b56sdwd03vsus" path="res://enemy/raposa.gd" id="1_gnt4v"]
@@ -231,11 +231,18 @@ tracks/7/keys = {
 "values": [Vector2(-385, 2559), Vector2(-439, 473), Vector2(-1187, 473)]
 }
 
+[sub_resource type="Animation" id="Animation_rmde3"]
+resource_name = "tranca"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5q6t"]
 _data = {
 &"RESET": SubResource("Animation_ve6f1"),
-&"soco": SubResource("Animation_srisv")
+&"soco": SubResource("Animation_srisv"),
+&"tranca": SubResource("Animation_rmde3")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmde3"]
+size = Vector2(33, 515)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_gnt4v")
@@ -277,3 +284,11 @@ root_node = NodePath("../Soco")
 libraries = {
 &"": SubResource("AnimationLibrary_w5q6t")
 }
+
+[node name="ParedeFinal2" type="StaticBody2D" parent="."]
+position = Vector2(-1257, 473)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeFinal2"]
+position = Vector2(2.5, -237.5)
+shape = SubResource("RectangleShape2D_rmde3")

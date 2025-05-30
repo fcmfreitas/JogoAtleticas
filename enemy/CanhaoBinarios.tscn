@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu33fiwlix8ps"]
+
+[ext_resource type="Script" uid="uid://ctutlx8v2vbd4" path="res://enemy/canhao_binarios.gd" id="1_usdfj"]
+[ext_resource type="PackedScene" uid="uid://bs57nxvpeo6xv" path="res://enemy/Binarios.tscn" id="2_pspn0"]
+
+[node name="CanhaoBinarios" type="Marker2D"]
+script = ExtResource("1_usdfj")
+binarios = ExtResource("2_pspn0")

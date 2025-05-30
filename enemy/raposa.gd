@@ -13,6 +13,7 @@ enum StateMachine { waitingPlayer, idle, ataque, ataque2, die }
 var state = StateMachine.waitingPlayer
 
 func _ready() -> void:
+	$ParedeFinal2/CollisionShape2D.disabled = true
 	raposa.play("default")
 	pass
 
@@ -40,7 +41,8 @@ func _process(delta: float) -> void:
 	
 	match state:
 		StateMachine.waitingPlayer:
-			if abs(global_position.x - player.global_position.x) < 1000:
+			if abs(global_position.x - player.global_position.x) < 1170:
+				$ParedeFinal2/CollisionShape2D.disabled = false
 				_enter_state(StateMachine.ataque2)
 		
 		StateMachine.ataque2:
@@ -120,10 +122,17 @@ func update_fase():
 
 func take_damage(amount):
 	health -= amount
+	piscar()
 	print("Vida restante: ", health)
 	update_fase()
 	if health <= 0:
 		die()
+
+func piscar() -> void:
+	raposa.modulate = Color(1, 0, 0)  # começa vermelho
+	var tween = get_tree().create_tween()
+	tween.tween_property(raposa, "modulate", Color(1, 1, 1), 0.4) 
+	await tween.finished
 
 func die():
 	queue_free()

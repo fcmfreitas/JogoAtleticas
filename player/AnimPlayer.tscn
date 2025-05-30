@@ -229,7 +229,7 @@ espada = ExtResource("2_a0j8g")
 position = Vector2(-41, -57)
 scale = Vector2(0.279335, 0.279335)
 sprite_frames = SubResource("SpriteFrames_efikj")
-animation = &"idle"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-43, -52.5)

@@ -41,6 +41,11 @@ func _physics_process(delta):
 func shoot():
 	if projetil:
 		var p = projetil.instantiate()
+		
+		var dist = global_position.distance_to(player.global_position) # se longe demais não atira
+		if dist > 1000:
+			return
+		
 		if player.global_position.x < global_position.x + 40:
 			p.position = marker2.global_position
 			p.direction = Vector2.LEFT
@@ -52,9 +57,16 @@ func shoot():
 
 func take_damage(amount):
 	health -= amount
+	piscar()
 	print("Vida restante: ", health)
 	if health <= 0:
 		die()
+
+func piscar() -> void:
+	sprite.modulate = Color(1, 0, 0)  # começa vermelho
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.4) 
+	await tween.finished
 
 func die():
 	queue_free()

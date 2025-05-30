@@ -9,6 +9,11 @@ extends CharacterBody2D
 @onready var hud = get_node("/root/Main/HUD")
 @onready var health := 100
 
+@export var dash_speed := 1000.0
+@export var dash_duration := 0.15
+
+var dash_direction = 0
+var is_dashing = false
 var is_attacking = false
 var is_no_sword = false
 
@@ -22,9 +27,17 @@ func move_side(delta):
 	move_and_slide()
 
 func get_side_input():
+	if is_dashing:
+		return  # impede controle normal durante o dash
+
 	velocity.x = 0
 	var vel := Input.get_axis("left", "right")
 	var jump := Input.is_action_just_pressed("ui_select")
+
+	if Input.is_action_just_pressed("shift"):  
+		if vel != 0:
+			start_dash(vel)
+			return
 
 	if Input.is_action_just_pressed("click") and !is_attacking and !is_no_sword:
 		attack()
@@ -35,11 +48,12 @@ func get_side_input():
 
 	velocity.x = vel * speed
 
+
 func attack():
 	is_attacking = true
 	sprite.play("atack")
 
-	await get_tree().create_timer(0.3).timeout  # tempo até lançar espada
+	await get_tree().create_timer(0.25).timeout  # tempo até lançar espada
 
 	var e = espada.instantiate()
 	var mouse_pos = get_global_mouse_position()
@@ -70,7 +84,7 @@ func animate_side():
 	if is_no_sword:
 		anim_prefix = "_no_espada"
 
-
+	
 	if !is_on_floor():
 		sprite.play("jump" + anim_prefix)
 		sprite.flip_h = velocity.x < 0
@@ -99,6 +113,14 @@ func piscar() -> void:
 		await get_tree().create_timer(0.1).timeout
 		sprite.visible = true
 		await get_tree().create_timer(0.1).timeout
+
+func start_dash(direction):
+	is_dashing = true
+	sprite.play("jump")
+	dash_direction = direction
+	velocity.x = dash_direction * dash_speed
+	await get_tree().create_timer(dash_duration).timeout
+	is_dashing = false
 
 func die():
 	get_tree().change_scene_to_file("res://game/GameOver.tscn")
