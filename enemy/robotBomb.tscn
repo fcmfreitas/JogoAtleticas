@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl2ge32yc116e"]
+
+[ext_resource type="Texture2D" uid="uid://ctbr63pmebbkg" path="res://sprites/robot_bomb.png" id="1_65phm"]
+[ext_resource type="Script" uid="uid://bg38tt3xve2gi" path="res://enemy/robot_bomb.gd" id="1_m3g4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ykp6"]
+atlas = ExtResource("1_65phm")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3g4t"]
+atlas = ExtResource("1_65phm")
+region = Rect2(2400, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iseli"]
+atlas = ExtResource("1_65phm")
+region = Rect2(800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agaks"]
+atlas = ExtResource("1_65phm")
+region = Rect2(1600, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybwdk"]
+atlas = ExtResource("1_65phm")
+region = Rect2(4800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ymuq"]
+atlas = ExtResource("1_65phm")
+region = Rect2(4000, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvpq5"]
+atlas = ExtResource("1_65phm")
+region = Rect2(3200, 0, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ykp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ykp6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_m3g4t")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_iseli")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_agaks")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_ybwdk")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_6ymuq")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_nvpq5")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1k5f"]
+radius = 27.0
+height = 154.0
+
+[node name="RobotBomb" type="CharacterBody2D"]
+script = ExtResource("1_m3g4t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.211563, 0.211563)
+sprite_frames = SubResource("SpriteFrames_1ykp6")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -2)
+shape = SubResource("CapsuleShape2D_c1k5f")

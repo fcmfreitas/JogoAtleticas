@@ -19,6 +19,8 @@ var is_no_sword = false
 
 func _physics_process(delta):
 	move_side(delta)
+	if global_position.y > 3000:
+		die()
 
 func move_side(delta):
 	velocity.y += gravity * delta

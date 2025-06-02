@@ -130,6 +130,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-439, 473)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Raio1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Raio1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 1201)]
+}
 
 [sub_resource type="Animation" id="Animation_srisv"]
 resource_name = "soco"
@@ -177,7 +201,7 @@ tracks/3/path = NodePath("../Raio3:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2),
+"times": PackedFloat32Array(0, 1.03333, 1.23333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -213,7 +237,7 @@ tracks/6/path = NodePath("../Raio3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.833333, 0.966667, 2),
+"times": PackedFloat32Array(0.833333, 0.966667, 1.33333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-51, 2562), Vector2(-143, 471), Vector2(95, 471)]
@@ -229,6 +253,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-385, 2559), Vector2(-439, 473), Vector2(-1187, 473)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Raio1:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.866667, 0.966667, 1.23333, 1.36667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 1201), Vector2(85, 471), Vector2(17, 471), Vector2(114, 1201)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Raio1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.03333, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_rmde3"]
@@ -267,16 +315,18 @@ process_mode = 1
 position = Vector2(-269, -335)
 
 [node name="Raio2" parent="." instance=ExtResource("11_rmde3")]
-visible = false
 position = Vector2(358, 470)
 collision_layer = 1
 
+[node name="Raio1" parent="." instance=ExtResource("11_rmde3")]
+visible = true
+position = Vector2(114, 1201)
+collision_layer = 1
+
 [node name="Raio3" parent="." instance=ExtResource("11_rmde3")]
-visible = false
 position = Vector2(-143, 471)
 
 [node name="Raio4" parent="." instance=ExtResource("11_rmde3")]
-visible = false
 position = Vector2(-439, 473)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -286,7 +336,7 @@ libraries = {
 }
 
 [node name="ParedeFinal2" type="StaticBody2D" parent="."]
-position = Vector2(-1257, 473)
+position = Vector2(-1097, 480)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeFinal2"]

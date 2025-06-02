@@ -43,7 +43,7 @@ func shoot():
 		var p = projetil.instantiate()
 		
 		var dist = global_position.distance_to(player.global_position) # se longe demais não atira
-		if dist > 1000:
+		if dist > 800:
 			return
 		
 		if player.global_position.x < global_position.x + 40:

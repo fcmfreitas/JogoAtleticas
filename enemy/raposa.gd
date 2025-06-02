@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	
 	match state:
 		StateMachine.waitingPlayer:
-			if abs(global_position.x - player.global_position.x) < 1170:
+			if abs(global_position.x - player.global_position.x) < 900:
 				$ParedeFinal2/CollisionShape2D.disabled = false
 				_enter_state(StateMachine.ataque2)
 		

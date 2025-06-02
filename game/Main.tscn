@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvdfsmvn6flws"]
+[gd_scene load_steps=23 format=3 uid="uid://bvdfsmvn6flws"]
 
 [ext_resource type="PackedScene" uid="uid://d3equlu2k18pa" path="res://player/AnimPlayer.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://bxqodkil6popv" path="res://game/Game.gd" id="1_lgr22"]
@@ -9,16 +9,20 @@
 [ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="8_trn2v"]
 [ext_resource type="Script" uid="uid://bfq3swfrk3l1j" path="res://game/Label.gd" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://cu33fiwlix8ps" path="res://enemy/CanhaoBinarios.tscn" id="9_v2tjf"]
+[ext_resource type="PackedScene" uid="uid://cl2ge32yc116e" path="res://enemy/robotBomb.tscn" id="10_0btcf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yo8gm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0btcf"]
+size = Vector2(1228, 35)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
-size = Vector2(1630.95, 37)
+size = Vector2(1630, 35)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fk7ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
-size = Vector2(286, 40)
+size = Vector2(286, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20pc6"]
 size = Vector2(33, 515)
@@ -26,15 +30,39 @@ size = Vector2(33, 515)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6t0ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
-size = Vector2(2445, 42)
+size = Vector2(2099, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t0ec"]
-size = Vector2(1513.38, 37)
+size = Vector2(1514.35, 29.3249)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("player", "camera")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0btcf"]
+radius = 5.0
+height = 30.6282
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0btcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf05b"]
+size = Vector2(760, 35)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player", "raposa", "camera")]
 script = ExtResource("1_lgr22")
 player = NodePath("AnimPlayer")
+raposa = NodePath("RaposaBoss")
 camera = NodePath("AnimPlayer/Camera2D")
+
+[node name="Chao4" type="StaticBody2D" parent="."]
+position = Vector2(-4724, 685)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao4"]
+modulate = Color(0.201618, 0.213908, 0.290995, 1)
+position = Vector2(-310, -0.499976)
+scale = Vector2(1230, 41)
+texture = SubResource("PlaceholderTexture2D_yo8gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao4"]
+position = Vector2(-309, 2.5)
+shape = SubResource("RectangleShape2D_0btcf")
 
 [node name="Chao2" type="StaticBody2D" parent="."]
 position = Vector2(393, 337)
@@ -47,11 +75,11 @@ scale = Vector2(1631, 41)
 texture = SubResource("PlaceholderTexture2D_yo8gm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao2"]
-position = Vector2(643, 1.5)
+position = Vector2(642, 2.5)
 shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="Plataforma" type="StaticBody2D" parent="."]
-position = Vector2(2173, 278)
+position = Vector2(2210, 278)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataforma"]
@@ -64,7 +92,7 @@ texture = SubResource("PlaceholderTexture2D_fk7ia")
 shape = SubResource("RectangleShape2D_uu6xs")
 
 [node name="ParedeInicial" type="StaticBody2D" parent="."]
-position = Vector2(-2966, 674)
+position = Vector2(-5667, 649)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeInicial"]
@@ -112,34 +140,20 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Chao"]
 modulate = Color(0.215902, 0.215902, 0.215902, 1)
-position = Vector2(1038.5, -2.00002)
-scale = Vector2(2443, 46)
+position = Vector2(1005, -2.00002)
+scale = Vector2(2114, 46)
 texture = SubResource("PlaceholderTexture2D_6t0ec")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao"]
-position = Vector2(1038, 0)
+position = Vector2(1009.5, 0)
 shape = SubResource("RectangleShape2D_glv2v")
 
 [node name="RaposaBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_trn2v")]
 position = Vector2(3724, -185)
 player = NodePath("../AnimPlayer")
 
-[node name="AnimRobot" parent="." instance=ExtResource("8_03owx")]
-position = Vector2(1280, 230)
-player_path = NodePath("../AnimPlayer")
-
-[node name="AnimPlayer" parent="." groups=["Player"] instance=ExtResource("1_glv2v")]
-position = Vector2(-2760, 545)
-
-[node name="Camera2D" type="Camera2D" parent="AnimPlayer"]
-offset = Vector2(0, -140)
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-editor_draw_drag_margin = true
-
 [node name="ParedeFinal" type="StaticBody2D" parent="."]
-position = Vector2(4939, 298)
+position = Vector2(4755, 294)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeFinal"]
@@ -158,15 +172,16 @@ scale = Vector2(1513.55, 41)
 texture = SubResource("PlaceholderTexture2D_yo8gm")
 
 [node name="aaaa" type="CollisionShape2D" parent="Chao3"]
-position = Vector2(698.797, -11.3817)
+position = Vector2(700.135, -7.75201)
 rotation = -0.226893
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6t0ec")
 
 [node name="CanhaoBinarios" parent="." instance=ExtResource("9_v2tjf")]
-position = Vector2(-1417, 1058)
+position = Vector2(-1408, 1141)
 
 [node name="Plataforma4" type="StaticBody2D" parent="."]
-position = Vector2(-2807, 680)
+position = Vector2(-2811, 683)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataforma4"]
@@ -174,6 +189,11 @@ modulate = Color(0.255659, 0.255659, 0.255659, 1)
 position = Vector2(6.10352e-05, -1.5)
 scale = Vector2(286, 43)
 texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Plataforma4"]
+position = Vector2(3021, -350)
+rotation = 0.898845
+shape = SubResource("CapsuleShape2D_0btcf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma4"]
 shape = SubResource("RectangleShape2D_uu6xs")
@@ -191,6 +211,47 @@ texture = SubResource("PlaceholderTexture2D_fk7ia")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma3"]
 shape = SubResource("RectangleShape2D_uu6xs")
 
+[node name="Plataforma5" type="StaticBody2D" parent="."]
+position = Vector2(-4357, 492)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma5"]
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+position = Vector2(6.10352e-05, -1.5)
+scale = Vector2(286, 43)
+texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma5"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_uu6xs")
+
+[node name="Chao5" type="StaticBody2D" parent="."]
+position = Vector2(-3095, 685)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao5"]
+modulate = Color(0.201618, 0.213908, 0.290995, 1)
+position = Vector2(-544, -0.499976)
+scale = Vector2(762, 41)
+texture = SubResource("PlaceholderTexture2D_0btcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao5"]
+position = Vector2(-543, 2.5)
+shape = SubResource("RectangleShape2D_cf05b")
+
+[node name="Plataforma6" type="StaticBody2D" parent="."]
+position = Vector2(-4217, 744)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma6"]
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+position = Vector2(6.10352e-05, -1.5)
+scale = Vector2(286, 43)
+texture = SubResource("PlaceholderTexture2D_fk7ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma6"]
+shape = SubResource("RectangleShape2D_uu6xs")
+
 [node name="Plataforma2" type="StaticBody2D" parent="."]
 position = Vector2(-1710, 680)
 metadata/_edit_group_ = true
@@ -205,7 +266,60 @@ texture = SubResource("PlaceholderTexture2D_fk7ia")
 shape = SubResource("RectangleShape2D_uu6xs")
 
 [node name="CanhaoBinarios3" parent="." instance=ExtResource("9_v2tjf")]
-position = Vector2(-2529, 1049)
+position = Vector2(-2549, 1128)
 
 [node name="CanhaoBinarios2" parent="." instance=ExtResource("9_v2tjf")]
-position = Vector2(-1998, 1058)
+position = Vector2(-1990, 1129)
+
+[node name="AnimRobot" parent="." instance=ExtResource("8_03owx")]
+position = Vector2(1698, 229)
+player_path = NodePath("../AnimPlayer")
+
+[node name="AnimRobot2" parent="." instance=ExtResource("8_03owx")]
+position = Vector2(-1704, 575)
+player_path = NodePath("../AnimPlayer")
+
+[node name="AnimPlayer" parent="." groups=["Player"] instance=ExtResource("1_glv2v")]
+position = Vector2(-5535, 626)
+
+[node name="Camera2D" type="Camera2D" parent="AnimPlayer"]
+offset = Vector2(0, -140)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
+
+[node name="RobotBomb2" parent="." instance=ExtResource("10_0btcf")]
+position = Vector2(-275, 330)
+player_path = NodePath("../AnimPlayer")
+
+[node name="RobotBomb3" parent="." instance=ExtResource("10_0btcf")]
+position = Vector2(28, 198)
+player_path = NodePath("../AnimPlayer")
+
+[node name="RobotBomb" parent="." instance=ExtResource("10_0btcf")]
+position = Vector2(1062, 234)
+player_path = NodePath("../AnimPlayer")
+
+[node name="CanhaoBinarios4" parent="." instance=ExtResource("9_v2tjf")]
+position = Vector2(-3125, 1132)
+
+[node name="AnimRobot3" parent="." instance=ExtResource("8_03owx")]
+position = Vector2(-4433, 389)
+player_path = NodePath("../AnimPlayer")
+
+[node name="RobotBomb4" parent="." instance=ExtResource("10_0btcf")]
+position = Vector2(-4507, 586)
+player_path = NodePath("../AnimPlayer")
+
+[node name="RobotBomb5" parent="." instance=ExtResource("10_0btcf")]
+position = Vector2(-3266, 588)
+player_path = NodePath("../AnimPlayer")
+
+[node name="AnimRobot4" parent="." instance=ExtResource("8_03owx")]
+position = Vector2(-2802, 577)
+player_path = NodePath("../AnimPlayer")
+
+[node name="AnimRobot5" parent="." instance=ExtResource("8_03owx")]
+position = Vector2(-4214, 641)
+player_path = NodePath("../AnimPlayer")

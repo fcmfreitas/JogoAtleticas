@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage = 20
+@export var damage = 15
 @onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
