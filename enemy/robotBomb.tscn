@@ -1,7 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl2ge32yc116e"]
+[gd_scene load_steps=19 format=3 uid="uid://cl2ge32yc116e"]
 
 [ext_resource type="Texture2D" uid="uid://ctbr63pmebbkg" path="res://sprites/robot_bomb.png" id="1_65phm"]
 [ext_resource type="Script" uid="uid://bg38tt3xve2gi" path="res://enemy/robot_bomb.gd" id="1_m3g4t"]
+[ext_resource type="Texture2D" uid="uid://diuq4grru18ro" path="res://sprites/explosion+.png" id="2_iseli"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1k5f"]
+atlas = ExtResource("2_iseli")
+region = Rect2(0, 0, 2000, 1999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw3iq"]
+atlas = ExtResource("2_iseli")
+region = Rect2(2000, 0, 2000, 1999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0qmn"]
+atlas = ExtResource("2_iseli")
+region = Rect2(4000, 0, 2000, 1999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vr7q"]
+atlas = ExtResource("2_iseli")
+region = Rect2(0, 1999, 2000, 1999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w04o1"]
+atlas = ExtResource("2_iseli")
+region = Rect2(2000, 1999, 2000, 1999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2oe2"]
+atlas = ExtResource("2_iseli")
+region = Rect2(4000, 1999, 2000, 1999)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ykp6"]
 atlas = ExtResource("1_65phm")
@@ -33,6 +58,29 @@ region = Rect2(3200, 0, 800, 800)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ykp6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1k5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw3iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0qmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vr7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w04o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2oe2")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ykp6")

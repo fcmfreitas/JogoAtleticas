@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var marker2 = $Marker2D2
 @export var player_path : NodePath
 @export var projetil : PackedScene
-var health := 100
+var health := 75
 var player : Node2D
 
 var shoot_timer : Timer

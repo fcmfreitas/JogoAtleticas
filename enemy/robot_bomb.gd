@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @export var player_path : NodePath
 @export var gravity := 2500.0
-var health := 50
-var explosion_range := 350
+var health := 100
+var explosion_range := 250
 var damage := 50 
 
 const SPEED = 370.0
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if not player or is_exploding or global_position.distance_to(player.global_position) > 1000:
 		return
 
-	if global_position.distance_to(player.global_position) < 200:
+	if global_position.distance_to(player.global_position) < 150:
 		_explode()
 	else:
 		var direction = (player.global_position - global_position).normalized()
@@ -63,9 +63,20 @@ func _explode():
 			player.take_damage(damage)
 
 	print("Explodiu!")
+
+	# Volta à cor original antes da animação de explosão
+	sprite.modulate = Color(1, 1, 1)
+
+	sprite.play("explosion")
+	$CollisionShape2D.disabled = true
+
+	await sprite.animation_finished
+	
 	die()
 
 func take_damage(amount):
+	if is_exploding:
+		return  
 	health -= amount
 	piscar()
 	print("Vida restante: ", health)

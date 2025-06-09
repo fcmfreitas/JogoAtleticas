@@ -174,7 +174,6 @@ texture = SubResource("PlaceholderTexture2D_yo8gm")
 [node name="aaaa" type="CollisionShape2D" parent="Chao3"]
 position = Vector2(700.135, -7.75201)
 rotation = -0.226893
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6t0ec")
 
 [node name="CanhaoBinarios" parent="." instance=ExtResource("9_v2tjf")]
