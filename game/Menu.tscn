@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://sqja8j5777sk"]
+
+[ext_resource type="Script" uid="uid://ddhft8homguet" path="res://game/menu.gd" id="1_q5p8l"]
+[ext_resource type="FontFile" uid="uid://0mcwamf86rrp" path="res://Xolonium-Regular.ttf" id="2_pr8vu"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q5p8l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.176471, 0.227451, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 2
+offset_left = 319.0
+offset_top = 93.0
+offset_right = 1600.0
+offset_bottom = 388.0
+theme_override_constants/separation = 10
+
+[node name="GameOver" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_pr8vu")
+theme_override_font_sizes/font_size = 120
+text = "Guerra das Atléticas"
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pr8vu")
+theme_override_font_sizes/font_size = 50
+text = "Jogar"
+
+[node name="Button4" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pr8vu")
+theme_override_font_sizes/font_size = 50
+text = "Comandos"
+
+[node name="Button2" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pr8vu")
+theme_override_font_sizes/font_size = 50
+text = "1920 x1080"
+
+[node name="Button3" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pr8vu")
+theme_override_font_sizes/font_size = 50
+text = "854 x 480"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/Button2" to="." method="_on_button2_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/Button3" to="." method="_on_button3_pressed"]

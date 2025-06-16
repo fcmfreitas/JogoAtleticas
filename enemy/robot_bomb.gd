@@ -17,7 +17,7 @@ func _ready():
 		player = get_node(player_path)
 
 func _physics_process(delta: float) -> void:
-	if not player or is_exploding or global_position.distance_to(player.global_position) > 1000:
+	if not player or is_exploding or global_position.distance_to(player.global_position) > 800:
 		return
 
 	if global_position.distance_to(player.global_position) < 150:

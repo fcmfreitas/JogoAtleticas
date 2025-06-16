@@ -42,7 +42,7 @@ func shoot():
 	if projetil:
 		var p = projetil.instantiate()
 		
-		var dist = global_position.distance_to(player.global_position) # se longe demais não atira
+		var dist = abs(player.global_position.x - global_position.x)
 		if dist > 800:
 			return
 		
@@ -56,6 +56,10 @@ func shoot():
 		get_parent().add_child(p)
 
 func take_damage(amount):
+	var dist = abs(player.global_position.x - global_position.x)
+	if dist > 800:
+		return
+	
 	health -= amount
 	piscar()
 	print("Vida restante: ", health)
