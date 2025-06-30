@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bfq3swfrk3l1j" path="res://game/Label.gd" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://cu33fiwlix8ps" path="res://enemy/CanhaoBinarios.tscn" id="9_v2tjf"]
 [ext_resource type="PackedScene" uid="uid://cl2ge32yc116e" path="res://enemy/robotBomb.tscn" id="10_0btcf"]
+[ext_resource type="Texture2D" uid="uid://cu0tqcue10tw8" path="res://sprites/wood.png" id="10_dc36f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lgcj"]
 radius = 11.1798
@@ -28,10 +29,8 @@ size = Vector2(33, 515)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t0ec"]
 size = Vector2(1514.35, 29.3249)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fk7ia"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
-size = Vector2(243, 37)
+size = Vector2(196, 24)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0btcf"]
 
@@ -187,17 +186,17 @@ shape = SubResource("RectangleShape2D_6t0ec")
 position = Vector2(-1408, 1141)
 
 [node name="Plataforma5" type="StaticBody2D" parent="."]
-position = Vector2(-4406, 474)
+position = Vector2(-4429, 459)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataforma5"]
 modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(3.50011, -1.5)
-scale = Vector2(243, 43)
-texture = SubResource("PlaceholderTexture2D_fk7ia")
+position = Vector2(2.00049, 6.18741)
+scale = Vector2(0.210937, 0.15875)
+texture = ExtResource("10_dc36f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma5"]
-position = Vector2(3.5, 1.5)
+position = Vector2(2, 14)
 shape = SubResource("RectangleShape2D_uu6xs")
 
 [node name="Chao5" type="StaticBody2D" parent="."]
@@ -256,7 +255,7 @@ player_path = NodePath("../AnimPlayer")
 position = Vector2(-3125, 1132)
 
 [node name="AnimRobot3" parent="." instance=ExtResource("8_03owx")]
-position = Vector2(-4433, 372)
+position = Vector2(-4435, 372)
 player_path = NodePath("../AnimPlayer")
 
 [node name="RobotBomb4" parent="." instance=ExtResource("10_0btcf")]
