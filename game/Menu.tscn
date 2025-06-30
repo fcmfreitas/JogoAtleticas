@@ -29,7 +29,7 @@ offset_right = 1600.0
 offset_bottom = 388.0
 theme_override_constants/separation = 10
 
-[node name="GameOver" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Guerra das Atléticas" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_pr8vu")

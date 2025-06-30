@@ -15,7 +15,10 @@ func _on_button2_pressed() -> void:
 
 func _on_button3_pressed() -> void:
 	get_window().set_size(Vector2i(854, 480))
+	#get_viewport_transform()s
+	#get_viewport().size(Vector2i(854, 480))
+	DisplayServer.window_set_size(Vector2i(854,480))
 	print("Resolução alterada para 854x480")
 
 func _on_button4_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://game/Comandos.tscn")

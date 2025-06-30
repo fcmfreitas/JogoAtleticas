@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bstbeyu5ohpn7"]
+[gd_scene load_steps=7 format=3 uid="uid://bstbeyu5ohpn7"]
 
 [ext_resource type="Texture2D" uid="uid://rbrjqoexolkj" path="res://sprites/robot.png" id="1_8f3to"]
 [ext_resource type="Script" uid="uid://tme7t4nr1xma" path="res://enemy/AnimRobot.gd" id="1_h4h1q"]
 [ext_resource type="PackedScene" uid="uid://cpxwjf3awh2r2" path="res://enemy/Tiro.tscn" id="2_n3cxd"]
+[ext_resource type="AudioStream" uid="uid://b0n4tmyk7a2f2" path="res://Sounds/sfx_hurt.ogg" id="4_55x5b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8f3to"]
 animations = [{
@@ -36,3 +37,6 @@ position = Vector2(126, -20)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(-126, -26)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_55x5b")

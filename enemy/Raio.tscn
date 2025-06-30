@@ -1,22 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://5w7tm7xxnvdt"]
 
 [ext_resource type="Script" uid="uid://bl4ekyawl82bl" path="res://enemy/raio.gd" id="1_ci0oy"]
-[ext_resource type="Texture2D" uid="uid://ijactu2y3k48" path="res://sprites/raio.png" id="2_eqjgc"]
+[ext_resource type="Texture2D" uid="uid://ckmwafvhtr4dq" path="res://sprites/nuvemBinario.png" id="2_ci0oy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kigcr"]
 radius = 9.0
 height = 186.0
 
 [node name="Raio" type="Area2D"]
-visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ci0oy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 1)
-scale = Vector2(0.43125, 0.43125)
-texture = ExtResource("2_eqjgc")
+position = Vector2(8, -21)
+scale = Vector2(0.135645, 0.135645)
+texture = ExtResource("2_ci0oy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2

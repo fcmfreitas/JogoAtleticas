@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var audioExplosao = $AudioStreamPlayer
 @onready var sprite = $AnimatedSprite2D
 @export var player_path : NodePath
 @export var gravity := 2500.0
@@ -66,11 +66,12 @@ func _explode():
 
 	# Volta à cor original antes da animação de explosão
 	sprite.modulate = Color(1, 1, 1)
-
+	audioExplosao.play()
 	sprite.play("explosion")
 	$CollisionShape2D.disabled = true
 
 	await sprite.animation_finished
+	await audioExplosao.finished
 	
 	die()
 

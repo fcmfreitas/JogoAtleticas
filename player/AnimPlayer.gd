@@ -1,5 +1,6 @@
 extends CharacterBody2D
-
+@onready var JumpAudio = $AudioStreamPlayer
+@onready var dashAudio = $AudioStreamPlayer2
 @export var speed := 320.0
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
@@ -47,6 +48,7 @@ func get_side_input():
 	if is_on_floor() and jump:
 		velocity.y = jump_speed
 		get_tree().call_group("HUD", "update_score")
+		JumpAudio.play()
 
 	velocity.x = vel * speed
 
@@ -119,6 +121,7 @@ func piscar() -> void:
 func start_dash(direction):
 	is_dashing = true
 	sprite.play("jump")
+	dashAudio.play()
 	dash_direction = direction
 	velocity.x = dash_direction * dash_speed
 	await get_tree().create_timer(dash_duration).timeout

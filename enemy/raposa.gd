@@ -14,6 +14,7 @@ var state = StateMachine.waitingPlayer
 
 func _ready() -> void:
 	$ParedeFinal2/CollisionShape2D.disabled = true
+	$Raio2.scale.x = -1
 	raposa.play("default")
 	pass
 

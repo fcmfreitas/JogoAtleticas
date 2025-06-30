@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cl2ge32yc116e"]
+[gd_scene load_steps=20 format=3 uid="uid://cl2ge32yc116e"]
 
 [ext_resource type="Texture2D" uid="uid://ctbr63pmebbkg" path="res://sprites/robot_bomb.png" id="1_65phm"]
 [ext_resource type="Script" uid="uid://bg38tt3xve2gi" path="res://enemy/robot_bomb.gd" id="1_m3g4t"]
 [ext_resource type="Texture2D" uid="uid://diuq4grru18ro" path="res://sprites/explosion+.png" id="2_iseli"]
+[ext_resource type="AudioStream" uid="uid://br1sjck45ipja" path="res://Sounds/explosion.ogg" id="4_agaks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1k5f"]
 atlas = ExtResource("2_iseli")
@@ -76,6 +77,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p2oe2")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"explosion",
@@ -124,8 +128,11 @@ script = ExtResource("1_m3g4t")
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(0.211563, 0.211563)
 sprite_frames = SubResource("SpriteFrames_1ykp6")
-animation = &"idle"
+animation = &"explosion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, -2)
 shape = SubResource("CapsuleShape2D_c1k5f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_agaks")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d3equlu2k18pa"]
+[gd_scene load_steps=38 format=3 uid="uid://d3equlu2k18pa"]
 
 [ext_resource type="Script" uid="uid://bkv0gni4voe8x" path="res://player/AnimPlayer.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b3kr8sfepsqms" path="res://sprites/player_atack.png" id="2_4fvff"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cxo4fxp44c7nn" path="res://sprites/player_atack6.png" id="4_e6sdr"]
 [ext_resource type="Texture2D" uid="uid://8tw0vbqy8vv5" path="res://sprites/player_running_sEspada.png" id="7_5cnw6"]
 [ext_resource type="Texture2D" uid="uid://w3hsih42n16i" path="res://sprites/player_jumping_sEspada.png" id="7_36k2u"]
+[ext_resource type="AudioStream" uid="uid://cv1wf2ty2qx1f" path="res://Sounds/sfx_bump.ogg" id="10_5xv13"]
+[ext_resource type="AudioStream" uid="uid://cd2bbdwjqnorn" path="res://Sounds/dash.ogg" id="11_aenmg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fvff"]
 atlas = ExtResource("2_4fvff")
@@ -234,3 +236,10 @@ animation = &"idle_no_espada"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-43, -52.5)
 shape = SubResource("RectangleShape2D_xhfnw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5xv13")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_aenmg")
+volume_db = -7.8

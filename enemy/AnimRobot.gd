@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var audio = $AudioStreamPlayer
 @export var gravity := 2500.0
 @onready var sprite = $RobotSprite
 @onready var marker = $Marker2D
@@ -53,6 +54,7 @@ func shoot():
 			p.position = marker.global_position
 			p.direction = Vector2.RIGHT
 		
+		audio.play()
 		get_parent().add_child(p)
 
 func take_damage(amount):

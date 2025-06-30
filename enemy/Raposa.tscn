@@ -315,18 +315,20 @@ process_mode = 1
 position = Vector2(-269, -335)
 
 [node name="Raio2" parent="." instance=ExtResource("11_rmde3")]
+visible = false
 position = Vector2(358, 470)
 collision_layer = 1
 
 [node name="Raio1" parent="." instance=ExtResource("11_rmde3")]
-visible = true
 position = Vector2(114, 1201)
 collision_layer = 1
 
 [node name="Raio3" parent="." instance=ExtResource("11_rmde3")]
+visible = false
 position = Vector2(-143, 471)
 
 [node name="Raio4" parent="." instance=ExtResource("11_rmde3")]
+visible = false
 position = Vector2(-439, 473)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -336,7 +338,7 @@ libraries = {
 }
 
 [node name="ParedeFinal2" type="StaticBody2D" parent="."]
-position = Vector2(-1097, 480)
+position = Vector2(-1212, 480)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeFinal2"]
